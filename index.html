@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>משחקי ילדים</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="games/invisible-maze/game.css" />
+    <link rel="stylesheet" href="games/jumping-dinasour/game.css" />
+    <link rel="stylesheet" href="games/mushrooms/game.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="menu screen active" id="menu-screen">
+        <h1>משחקי ילדים</h1>
+        <p>בחרו משחק</p>
+        <div class="menu-grid">
+          <button class="game-card" data-game="maze">
+            <span class="card-title">מבוך בלתי ניראה</span>
+            <span class="card-desc">תזוזו בזהירות בלי לגעת בקירות</span>
+          </button>
+          <button class="game-card" data-game="dino">
+            <span class="card-title">דינוזאור קופץ</span>
+            <span class="card-desc">קפצו מעל המכשולים</span>
+          </button>
+          <button class="game-card" data-game="mushrooms">
+            <span class="card-title">פטריות קופצות</span>
+            <span class="card-desc">קפצו על הפטריות והן יקפיצו אתכם!</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen game-screen" id="maze-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>מבוך בלתי ניראה</h2>
+        </header>
+        <div class="level-switcher">
+          <button class="level-btn" data-level="1">קל</button>
+          <button class="level-btn" data-level="2">בינוני</button>
+          <button class="level-btn" data-level="3">קשה</button>
+        </div>
+        <p class="hint">המסלול מוסתר. הזיזו את הכדור מההתחלה אל הסיום בלי לגעת בקירות.</p>
+        <div class="maze-board" id="maze-board"></div>
+        <div class="status" id="maze-status">התחילו לנוע בזהירות</div>
+      </section>
+
+      <section class="screen game-screen" id="dino-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>דינוזאור קופץ</h2>
+        </header>
+        <p class="hint">לחצו על הקפיצה כדי לעבור את הקוביות.</p>
+        <div class="dino-stage">
+          <div class="dino" id="dino">🦖</div>
+          <div class="obstacle" id="obstacle"></div>
+          <div class="ground"></div>
+        </div>
+        <div class="controls">
+          <button id="restart-dino">התחלה מחדש</button>
+        </div>
+        <div class="status" id="dino-status">שמרו על הקצב</div>
+      </section>
+      <section class="screen game-screen" id="mushrooms-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>פטריות קופצות</h2>
+        </header>
+        <p class="hint">השתמשו בחצים לזוז ורווח לקפוץ. קפצו על הפטריות כדי לאסוף אותן!</p>
+        <div class="mush-stage">
+          <div class="mush-player" id="mush-player"></div>
+          <div class="mush-door" id="mush-door"></div>
+          <div class="ground"></div>
+        </div>
+        <div class="controls">
+          <button id="restart-mush">התחלה מחדש</button>
+        </div>
+        <div class="status" id="mush-status"></div>
+      </section>
+    </main>
+
+    <script type="module" src="script.mjs"></script>
+  </body>
+</html>

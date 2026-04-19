@@ -1,0 +1,14 @@
+.mush-stage { position: relative; height: 280px; margin-top: 16px; background: #e8f8e8; border-radius: 20px; overflow: hidden; direction: ltr; min-width: 100%; }
+.mush-stage .ground { position: absolute; left: 0; right: 0; bottom: 54px; height: 6px; background: #7aa86b; }
+.mush-player { position: absolute; width: 56px; height: 64px; background: url('assets/person.png') center/contain no-repeat; image-rendering: pixelated; transition: filter 0.2s; }
+.mush-player.super-mode { filter: hue-rotate(200deg) brightness(1.4) saturate(2); animation: super-pulse 0.4s infinite alternate; }
+@keyframes super-pulse { from { filter: hue-rotate(200deg) brightness(1.4) saturate(2); } to { filter: hue-rotate(300deg) brightness(1.8) saturate(3); } }
+.mushroom { position: absolute; width: 44px; height: 44px; background: url('assets/mushroom.png') center/contain no-repeat; transition: transform 0.1s ease-out, opacity 0.15s ease-out; }
+.mushroom.popped { transform: scale(1.5); opacity: 0; pointer-events: none; }
+.enemy { position: absolute; width: 44px; height: 44px; background: url('assets/enemy.png') center/contain no-repeat; }
+.enemy.stomped { transform: scale(1.4) scaleY(0.2); opacity: 0; transition: transform 0.15s, opacity 0.15s; pointer-events: none; }
+.flying-enemy { position: absolute; width: 48px; height: 40px; background: url('assets/flying-enemy.png') center/contain no-repeat; }
+.flying-enemy.stomped { transform: scale(1.4) scaleY(0.2); opacity: 0; transition: transform 0.15s, opacity 0.15s; pointer-events: none; }
+.mush-door { position: absolute; width: 60px; height: 90px; background: url('assets/door.png') center/contain no-repeat; display: none; animation: door-appear 0.4s ease-out; }
+.mush-door.visible { display: block; }
+@keyframes door-appear { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }

@@ -1,0 +1,10 @@
+# macOS resource forks
+._*
+.DS_Store
+
+# Node
+node_modules/
+
+# Claude / Roo local settings (may contain API keys)
+.claude/
+.roo/
