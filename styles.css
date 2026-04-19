@@ -1,0 +1,88 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(180deg, #dff7ff, #fff5d6);
+  color: #203040;
+}
+.app { min-height: 100vh; padding: 20px; }
+.screen { display: none; max-width: 900px; margin: 0 auto; }
+.screen.active { display: block; }
+h1, h2, p { margin-top: 0; }
+.menu { text-align: center; padding-top: 40px; direction: rtl; }
+.menu-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 24px; direction: rtl; }
+.game-card, .back-btn, .controls button, #jump-btn, #restart-dino {
+  border: 0; border-radius: 20px; padding: 16px 18px; font-size: 18px; cursor: pointer;
+}
+.game-card { background: white; box-shadow: 0 8px 20px rgba(0,0,0,.08); text-align: right; direction: rtl; }
+.card-title { display: block; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.card-desc { color: #556; }
+.game-header { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; direction: rtl; }
+.level-switcher { display: flex; gap: 10px; margin-bottom: 12px; direction: rtl; flex-wrap: wrap; }
+.level-btn { border: 0; border-radius: 999px; padding: 10px 14px; background: #fff0b8; cursor: pointer; }
+.back-btn { background: #ffe08a; }
+.hint, .status { background: rgba(255,255,255,.8); padding: 12px 14px; border-radius: 16px; direction: rtl; }
+.maze-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background: #f8fbff;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  direction: ltr;
+  aspect-ratio: 1;
+}
+.maze-cell {
+  aspect-ratio: 1;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  position: relative;
+}
+.maze-cell.player::after {
+  content: '';
+  width: var(--maze-player-size, 16px);
+  height: var(--maze-player-size, 16px);
+  background: #1f5fff;
+  border-radius: 6px;
+  position: absolute;
+}
+.maze-cell::before,
+.maze-cell::after {
+  content: '';
+  position: absolute;
+  background: transparent;
+}
+.maze-cell.player { background: rgba(157, 224, 255, .35); }
+.maze-cell.start { background: rgba(184, 245, 196, .2); }
+.maze-cell.end { background: rgba(255, 208, 208, .25); }
+.maze-wall {
+  position: absolute;
+  background: #cc2a2a;
+  z-index: 2;
+}
+.maze-wall-v {
+  width: 6px;
+  transform: translateX(-3px);
+}
+.maze-wall-h {
+  height: 6px;
+  transform: translateY(-3px);
+}
+.dino-stage { position: relative; height: 220px; margin-top: 16px; background: #eef8ff; border-radius: 20px; overflow: hidden; direction: ltr; }
+.ground { position: absolute; left: 0; right: 0; bottom: 48px; height: 6px; background: #7aa86b; }
+.dino, .obstacle { position: absolute; bottom: 54px; font-size: 48px; transition: transform .12s linear; }
+.dino { right: 60px; }
+.dino.jump { transform: translateY(-90px); }
+.obstacle { left: -60px; width: 48px; height: 48px; background: #ff8c42; border-radius: 12px; }
+.obstacle.run { animation: run 2.2s linear infinite; }
+@keyframes run { from { left: -60px; } to { left: calc(100% + 60px); } }
+.controls { display: flex; gap: 12px; margin-top: 14px; flex-wrap: wrap; direction: rtl; }
+.controls button { background: #9de0ff; }
+@media (max-width: 600px) { .game-header { flex-direction: column; align-items: stretch; } }
