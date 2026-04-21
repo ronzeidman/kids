@@ -2,7 +2,6 @@ const files = [
   './shared/utils.js',
   './shared/ui.js',
   './games/invisible-maze/game.js',
-  './games/jumping-dinasour/game.js',
   './games/mushrooms/game.js',
 ];
 

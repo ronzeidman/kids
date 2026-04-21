@@ -1,9 +1,0 @@
-.dino-stage { position: relative; height: 280px; margin-top: 16px; background: #eef8ff; border-radius: 20px; overflow: hidden; direction: ltr; min-width: 100%; }
-.dino-stage.game-stage { min-height: 280px; }
-.ground { position: absolute; left: 0; right: 0; bottom: 54px; height: 6px; background: #7aa86b; }
-.dino { position: absolute; left: 70px; bottom: 54px; width: 64px; height: 64px; background: url('assets/dino.png') center/contain no-repeat; font-size: 0; }
-.platform-layer { position: absolute; inset: 0; z-index: 1; }
-.platform { position: absolute; background: #7aa86b; border-radius: 10px; }
-.key-item, .goal-item, .dino { z-index: 2; }
-.key-item { position: absolute; width: 36px; height: 36px; background: url('assets/key.png') center/contain no-repeat; }
-.goal-item { position: absolute; width: 64px; height: 96px; background: url('assets/flag.png') center/contain no-repeat; }
