@@ -6,7 +6,6 @@
     <title>משחקי ילדים</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="games/invisible-maze/game.css" />
-    <link rel="stylesheet" href="games/jumping-dinasour/game.css" />
     <link rel="stylesheet" href="games/mushrooms/game.css" />
   </head>
   <body>
@@ -18,10 +17,6 @@
           <button class="game-card" data-game="maze">
             <span class="card-title">מבוך בלתי ניראה</span>
             <span class="card-desc">תזוזו בזהירות בלי לגעת בקירות</span>
-          </button>
-          <button class="game-card" data-game="dino">
-            <span class="card-title">דינוזאור קופץ</span>
-            <span class="card-desc">קפצו מעל המכשולים</span>
           </button>
           <button class="game-card" data-game="mushrooms">
             <span class="card-title">פטריות קופצות</span>
@@ -45,22 +40,6 @@
         <div class="status" id="maze-status">התחילו לנוע בזהירות</div>
       </section>
 
-      <section class="screen game-screen" id="dino-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>דינוזאור קופץ</h2>
-        </header>
-        <p class="hint">לחצו על הקפיצה כדי לעבור את הקוביות.</p>
-        <div class="dino-stage">
-          <div class="dino" id="dino">🦖</div>
-          <div class="obstacle" id="obstacle"></div>
-          <div class="ground"></div>
-        </div>
-        <div class="controls">
-          <button id="restart-dino">התחלה מחדש</button>
-        </div>
-        <div class="status" id="dino-status">שמרו על הקצב</div>
-      </section>
       <section class="screen game-screen" id="mushrooms-screen">
         <header class="game-header">
           <button class="back-btn" data-back>חזרה</button>
