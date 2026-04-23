@@ -1,3 +1,5 @@
+import { initShooter } from './games/shooter/game.js';
+
 const files = [
   './shared/utils.js',
   './shared/ui.js',
@@ -17,3 +19,5 @@ for (const file of files) {
   // eslint-disable-next-line no-await-in-loop
   await loadScript(file);
 }
+
+initShooter();
