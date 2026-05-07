@@ -1,0 +1,15 @@
+#kirby-stage {
+  display: flex;
+  justify-content: center;
+  padding: 0 8px 8px;
+}
+
+#kirby-stage canvas {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  max-height: calc(100vh - 140px);
+  aspect-ratio: 800 / 380;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.28);
+}

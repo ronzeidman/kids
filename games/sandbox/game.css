@@ -1,0 +1,32 @@
+/* Sandbox (falling sand) game */
+#sandbox-screen { direction: ltr; }
+#sandbox-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  margin-top: 8px;
+}
+#sandbox-toolbar {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  padding: 4px 0;
+}
+.sb-btn {
+  padding: 6px 14px; border: 2px solid transparent;
+  border-radius: 8px; cursor: pointer; font-size: 13px;
+  font-family: monospace; background: #222; color: #ccc;
+  transition: all 0.1s;
+}
+.sb-btn:hover { background: #333; }
+.sb-btn.active { border-color: #fff; color: #fff; background: #444; }
+#sandbox-canvas { border: 2px solid #444; border-radius: 4px; cursor: crosshair; display: block; image-rendering: pixelated; }
+#sandbox-info { color: #888; font-size: 12px; font-family: monospace; }
+#sb-brush-label {
+  color: #888; font-size: 12px; font-family: monospace;
+  display: flex; align-items: center; gap: 6px;
+}
+#sb-brush-size {
+  -webkit-appearance: none; background: #555; border-radius: 4px;
+  height: 6px; outline: none; cursor: pointer; width: 80px;
+}
+#sb-brush-size::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px;
+  border-radius: 50%; background: #aaa; cursor: pointer;
+}

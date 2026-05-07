@@ -1,0 +1,17 @@
+#shooter-canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+#shooter-canvas-container canvas {
+  display: block;
+  border-radius: 12px;
+  cursor: crosshair;
+}
+
+#shooter-screen.screen:not(.active) #shooter-canvas-container {
+  display: none;
+}

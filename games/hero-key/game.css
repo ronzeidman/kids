@@ -1,0 +1,301 @@
+/* ── Stage ─────────────────────────────────────────────────────────────── */
+.hk-stage {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(180deg, #0d0d2b 0%, #1a1a4a 55%, #2a3a1a 100%);
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid #333;
+}
+
+.hk-ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, #5a9a3a 0%, #3a6a1a 60%, #2a4a10 100%);
+  border-top: 4px solid #7aba4a;
+}
+
+.hk-platform {
+  position: absolute;
+  height: 16px;
+  background: linear-gradient(180deg, #7aba4a 0%, #4a7a2a 100%);
+  border-radius: 6px;
+  border-top: 3px solid #9ade6a;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* ── Player ────────────────────────────────────────────────────────────── */
+.hk-player {
+  position: absolute;
+  width: 58px;
+  height: 64px;
+  z-index: 5;
+  transform-origin: center bottom;
+}
+
+.hk-player-img {
+  width: 100%;
+  height: 100%;
+  background: url('assets/player.png') center bottom / contain no-repeat;
+}
+
+/* Walking — inner image bounces */
+.hk-player.walking .hk-player-img {
+  animation: hk-walk-step 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes hk-walk-step {
+  from { transform: translateY(0px)   rotate(-2deg); }
+  to   { transform: translateY(-5px)  rotate(2deg);  }
+}
+
+/* Power-up tints via CSS filter on the image */
+.hk-player.pu-speed  .hk-player-img { filter: hue-rotate(50deg) saturate(1.8) brightness(1.1); }
+.hk-player.pu-jump   .hk-player-img { filter: hue-rotate(165deg) saturate(1.6); }
+.hk-player.pu-shield .hk-player-img { filter: hue-rotate(250deg) saturate(1.6); }
+
+/* Shield ring */
+.hk-player.shielded::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 3px solid #cc66ff;
+  animation: hk-shield-pulse 0.9s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes hk-shield-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1);    box-shadow: 0 0 8px #cc66ff; }
+  50%       { opacity: 0.5; transform: scale(1.12); box-shadow: 0 0 20px #cc66ff; }
+}
+
+/* Speed trail */
+.hk-player.pu-speed.walking::after {
+  content: '⚡⚡';
+  position: absolute;
+  top: 14px;
+  left: -22px;
+  font-size: 12px;
+  opacity: 0.7;
+  animation: hk-trail-fade 0.25s ease-out infinite;
+}
+@keyframes hk-trail-fade {
+  from { opacity: 0.7; }
+  to   { opacity: 0; }
+}
+
+/* Invincibility blink — handled via JS opacity */
+
+/* ── Key ───────────────────────────────────────────────────────────────── */
+.hk-key {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  z-index: 4;
+  filter: drop-shadow(0 0 6px #ffd700);
+  animation: hk-key-float 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes hk-key-float {
+  from { transform: translateY(0)   rotate(-12deg); }
+  to   { transform: translateY(-9px) rotate(12deg);  }
+}
+
+/* ── Door ──────────────────────────────────────────────────────────────── */
+.hk-door {
+  position: absolute;
+  width: 52px;
+  height: 80px;
+  z-index: 4;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: background 0.4s, border-color 0.4s;
+}
+
+.hk-door.locked {
+  background: #6b3a1a;
+  border: 3px solid #4a2a10;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+.hk-door.unlocked {
+  background: #1a7a3a;
+  border: 3px solid #0a5a2a;
+  animation: hk-door-glow 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes hk-door-glow {
+  from { box-shadow: 0 0 10px #2aff6a; }
+  to   { box-shadow: 0 0 25px #2aff6a; }
+}
+
+/* ── Ground enemies ────────────────────────────────────────────────────── */
+.hk-enemy {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+  background: url('assets/enemy-ground.png') center bottom / contain no-repeat;
+  font-size: 0;
+}
+
+.hk-enemy.stomped {
+  animation: hk-squish 0.35s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes hk-squish {
+  0%   { transform: scaleY(1)    scaleX(1);   opacity: 1; }
+  40%  { transform: scaleY(0.15) scaleX(1.8); opacity: 1; }
+  100% { transform: scaleY(0)    scaleX(1.8); opacity: 0; }
+}
+
+/* ── Flying enemies ────────────────────────────────────────────────────── */
+/* Outer: position + flap animation only (no JS transform on this element) */
+.hk-flyer {
+  position: absolute;
+  width: 52px;
+  height: 44px;
+  z-index: 3;
+  animation: hk-flap 0.35s ease-in-out infinite alternate;
+}
+
+/* Inner .hk-fimg: JS applies scaleX for direction; image lives here */
+.hk-flyer > .hk-fimg {
+  width: 100%;
+  height: 100%;
+  background: url('assets/enemy-bat.png') center / contain no-repeat;
+}
+
+@keyframes hk-flap {
+  from { transform: scaleY(1);    }
+  to   { transform: scaleY(0.82); }
+}
+
+.hk-flyer.stomped {
+  animation: hk-squish 0.35s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ── Power-up overlay ──────────────────────────────────────────────────── */
+.hk-powerup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 20, 0.93);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  gap: 14px;
+  border-radius: 10px;
+}
+
+.hk-powerup-overlay .pu-title {
+  color: #ffd700;
+  font-size: 1.9em;
+  margin: 0;
+  text-shadow: 0 0 20px #ffd700, 0 0 40px #ffaa00;
+  animation: hk-title-bob 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes hk-title-bob {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-5px); }
+}
+
+.hk-powerup-overlay .pu-sub {
+  color: #aaa;
+  margin: 0;
+  font-size: 1em;
+}
+
+.hk-pu-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hk-pu-btn {
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  font-size: 0.95em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 115px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.hk-pu-btn:hover {
+  transform: translateY(-5px) scale(1.07);
+}
+
+.hk-pu-btn .pu-icon  { font-size: 2.2em; }
+.hk-pu-btn .pu-name  { font-weight: bold; font-size: 1.1em; }
+.hk-pu-btn .pu-desc  { font-size: 0.78em; opacity: 0.85; }
+
+/* ── HUD hint / status ─────────────────────────────────────────────────── */
+.hk-status {
+  margin-top: 8px;
+  font-size: 1em;
+  text-align: center;
+  color: #ffd700;
+  min-height: 1.6em;
+  font-weight: 500;
+}
+
+/* ── Dragons ───────────────────────────────────────────────────────────── */
+.hk-flyer.hk-dragon {
+  width: 64px;
+  height: 52px;
+  filter: drop-shadow(0 0 8px #ff4400);
+  animation: hk-dragon-hover 0.6s ease-in-out infinite alternate;
+}
+
+.hk-flyer.hk-dragon > .hk-fimg {
+  background: url('assets/enemy-dragon.png') center / contain no-repeat;
+}
+
+@keyframes hk-dragon-hover {
+  from { transform: translateY(0);   }
+  to   { transform: translateY(-7px); }
+}
+
+/* ── Fireballs ─────────────────────────────────────────────────────────── */
+.hk-fireball {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  z-index: 4;
+  animation: hk-fire-pulse 0.15s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 6px #ff4400);
+}
+
+@keyframes hk-fire-pulse {
+  from { transform: scale(0.9); }
+  to   { transform: scale(1.2); }
+}
+
+/* ── Win glow ──────────────────────────────────────────────────────────── */
+#hero-key-screen.game-won .hk-stage {
+  box-shadow: 0 0 30px #2aff6a, 0 0 60px #2aff6a;
+}

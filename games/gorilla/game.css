@@ -1,0 +1,149 @@
+#gorilla-screen {
+  position: fixed !important;
+  inset: 0;
+  max-width: none;
+  z-index: 200;
+  overflow: hidden;
+  background: #1a0a2e;
+}
+
+#gorilla-screen canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+#gorilla-ui {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  pointer-events: none;
+  z-index: 10;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#gorilla-lives {
+  font-size: 28px;
+  text-shadow: 0 2px 6px #000;
+}
+
+#gorilla-bananas {
+  font-size: 22px;
+  color: #ffe066;
+  font-weight: bold;
+  text-shadow: 0 2px 6px #000;
+}
+
+#gorilla-level {
+  font-size: 20px;
+  color: #aaffaa;
+  font-weight: bold;
+  text-shadow: 0 2px 6px #000;
+}
+
+#gorilla-home-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  pointer-events: all;
+  background: rgba(0,0,0,0.5);
+  border: 2px solid #fff4;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+#gorilla-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.75);
+  z-index: 20;
+  color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#gorilla-overlay h2 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 16px #000;
+}
+
+#gorilla-overlay p {
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: #ffe066;
+}
+
+#gorilla-overlay button {
+  background: #5d3fd3;
+  border: none;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 30px;
+  font-size: 22px;
+  cursor: pointer;
+  margin: 8px;
+  box-shadow: 0 4px 16px #0008;
+  transition: transform .1s;
+}
+
+#gorilla-overlay button:hover {
+  transform: scale(1.07);
+}
+
+/* Mobile d-pad */
+#gorilla-dpad {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: none;
+  z-index: 15;
+  pointer-events: all;
+}
+
+#gorilla-jump-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index: 15;
+  pointer-events: all;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: 3px solid #fff8;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (pointer: coarse) {
+  #gorilla-dpad { display: flex; gap: 8px; }
+  #gorilla-jump-btn { display: flex; align-items: center; justify-content: center; }
+}
+
+.gorilla-dpad-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: 3px solid #fff8;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
