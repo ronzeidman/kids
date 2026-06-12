@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>מריו</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen game-screen active" id="mario-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>מריו 🍄</h2>
+        </header>
+        <canvas id="mario-canvas" width="480" height="288"></canvas>
+        <div class="mario-touch">
+          <div class="mario-touch-left">
+            <button class="mario-btn" id="mario-btn-left">◀</button>
+            <button class="mario-btn" id="mario-btn-right">▶</button>
+          </div>
+          <div class="mario-touch-right">
+            <button class="mario-btn mario-btn-b" id="mario-btn-run">B</button>
+            <button class="mario-btn mario-btn-a" id="mario-btn-jump">A</button>
+          </div>
+        </div>
+        <p class="hint">חיצים לזוז · חץ למעלה / A לקפוץ · B לרוץ</p>
+      </section>
+    </main>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -62,6 +62,75 @@ export function removeBg(filePath) {
   console.log(`✅ ${path.basename(filePath)} — background removed`);
 }
 
+/**
+ * Strip thin uniform-dark frame borders that Gemini sometimes draws around
+ * reference-image generations. Iteratively peels 1px from any edge whose
+ * pixels are overwhelmingly dark+opaque, up to a max depth. Stops when edges
+ * become non-uniform (real character outline reached).
+ *
+ * Pass a PNG instance (mutated in place is OK, but we return a new one cropped
+ * because each peel reduces dimensions).
+ */
+export function stripDarkBorder(png, { maxPeel = 30, darkThreshold = 220, darkRatio = 0.7 } = {}) {
+  let { width, height, data } = png;
+
+  // Reads alpha of a pixel
+  const A = (x, y) => data[(y * width + x) * 4 + 3];
+  const DARK = (x, y) => {
+    const i = (y * width + x) * 4;
+    return data[i + 3] > 100 && (data[i] + data[i+1] + data[i+2]) < darkThreshold;
+  };
+
+  const edgeDarkRatio = (which) => {
+    let dark = 0, total = 0;
+    if (which === "top" || which === "bottom") {
+      const y = which === "top" ? 0 : height - 1;
+      for (let x = 0; x < width; x++) {
+        if (A(x, y) > 100) { total++; if (DARK(x, y)) dark++; }
+      }
+    } else {
+      const x = which === "left" ? 0 : width - 1;
+      for (let y = 0; y < height; y++) {
+        if (A(x, y) > 100) { total++; if (DARK(x, y)) dark++; }
+      }
+    }
+    return total > 0 ? dark / total : 0;
+  };
+
+  // Crop returns a new Buffer-backed view. We rebuild a smaller buffer.
+  function crop({ top = 0, bottom = 0, left = 0, right = 0 }) {
+    const nw = width - left - right;
+    const nh = height - top - bottom;
+    const nbuf = Buffer.alloc(nw * nh * 4);
+    for (let y = 0; y < nh; y++) {
+      for (let x = 0; x < nw; x++) {
+        const si = ((y + top) * width + (x + left)) * 4;
+        const di = (y * nw + x) * 4;
+        nbuf[di]     = data[si];
+        nbuf[di + 1] = data[si + 1];
+        nbuf[di + 2] = data[si + 2];
+        nbuf[di + 3] = data[si + 3];
+      }
+    }
+    width = nw; height = nh; data = nbuf;
+  }
+
+  for (let iter = 0; iter < maxPeel; iter++) {
+    if (width < 4 || height < 4) break;
+    const peel = { top: 0, bottom: 0, left: 0, right: 0 };
+    if (edgeDarkRatio("top") > darkRatio)    peel.top = 1;
+    if (edgeDarkRatio("bottom") > darkRatio) peel.bottom = 1;
+    if (edgeDarkRatio("left") > darkRatio)   peel.left = 1;
+    if (edgeDarkRatio("right") > darkRatio)  peel.right = 1;
+    if (!peel.top && !peel.bottom && !peel.left && !peel.right) break;
+    crop(peel);
+  }
+
+  const out = new PNG({ width, height });
+  data.copy(out.data);
+  return out;
+}
+
 // CLI mode: node scripts/remove-bg.mjs path/to/image.png
 if (process.argv[1] === new URL(import.meta.url).pathname) {
   const file = process.argv[2];

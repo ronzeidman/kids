@@ -1,18 +1,13 @@
 window.GameUI = {
+  goHome() { location.href = '/'; },
   showScreen(name) {
-    document.querySelectorAll('.screen').forEach((screen) => screen.classList.remove('active'));
+    if (name === 'menu') { window.GameUI.goHome(); return; }
     const target = document.getElementById(`${name}-screen`);
     if (target) target.classList.add('active');
   },
-
-  bindNavigation() {
-    document.querySelectorAll('[data-game]').forEach((btn) => {
-      btn.addEventListener('click', () => window.GameUI.showScreen(btn.dataset.game));
-    });
-    document.querySelectorAll('[data-back]').forEach((btn) => {
-      btn.addEventListener('click', () => window.GameUI.showScreen('menu'));
-    });
-  },
 };
 
-window.GameUI.bindNavigation();
+document.addEventListener('click', (e) => {
+  const back = e.target.closest('[data-back]');
+  if (back) { e.preventDefault(); window.GameUI.goHome(); }
+});

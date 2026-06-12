@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>חול 🏖️</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <section class="screen game-screen active" id="sandbox-screen">
+      <header class="game-header">
+        <button class="back-btn" data-back>חזרה</button>
+        <h2>חול 🏖️</h2>
+      </header>
+      <div id="sandbox-wrap">
+        <div id="sandbox-toolbar">
+          <button class="sb-btn active" data-element="sand"  style="color:#e8c87a">◈ חול</button>
+          <button class="sb-btn"        data-element="water" style="color:#5ab4f5">◈ מים</button>
+          <button class="sb-btn"        data-element="fire"  style="color:#f5832a">◈ אש</button>
+          <button class="sb-btn"        data-element="steam" style="color:#aaccdd">◈ קיטור</button>
+          <button class="sb-btn"        data-element="stone" style="color:#888">◈ אבן</button>
+          <button class="sb-btn"        data-element="wood"  style="color:#a0724a">◈ עץ</button>
+          <button class="sb-btn"        data-element="oil"   style="color:#c8a040">◈ שמן</button>
+          <button class="sb-btn"        data-element="lava"  style="color:#ff4400">◈ לבה</button>
+          <button class="sb-btn"        data-element="ice"   style="color:#88ddff">◈ קרח</button>
+          <button class="sb-btn"        data-element="erase" style="color:#666">✕ מחק</button>
+          <label id="sb-brush-label"><input type="range" id="sb-brush-size" min="1" max="12" value="3"> גודל</label>
+          <button class="sb-btn" id="sb-clear-btn" style="color:#f55">⟳ נקה</button>
+        </div>
+        <canvas id="sb-canvas"></canvas>
+        <div id="sandbox-info">לחץ וגרור לציור</div>
+      </div>
+    </section>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>מבוך בלתי ניראה</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen game-screen active" id="maze-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>מבוך בלתי ניראה</h2>
+        </header>
+        <div class="level-switcher">
+          <button class="level-btn" data-level="1">קל</button>
+          <button class="level-btn" data-level="2">בינוני</button>
+          <button class="level-btn" data-level="3">קשה</button>
+        </div>
+        <p class="hint">המסלול מוסתר. הזיזו את הכדור מההתחלה אל הסיום בלי לגעת בקירות.</p>
+        <div class="maze-board" id="maze-board"></div>
+        <div class="status" id="maze-status">התחילו לנוע בזהירות</div>
+      </section>
+    </main>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

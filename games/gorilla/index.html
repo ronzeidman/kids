@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>גורילה 🦍</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <section class="screen active" id="gorilla-screen">
+      <canvas id="gorilla-canvas"></canvas>
+      <div id="gorilla-ui">
+        <div id="gorilla-lives">❤️❤️❤️</div>
+        <div id="gorilla-bananas">🍌 0/10</div>
+        <div id="gorilla-level">שלב 1</div>
+      </div>
+      <button id="gorilla-home-btn">🏠 חזרה</button>
+      <div id="gorilla-dpad">
+        <button class="gorilla-dpad-btn" id="gorilla-left-btn">◀</button>
+        <button class="gorilla-dpad-btn" id="gorilla-right-btn">▶</button>
+      </div>
+      <button id="gorilla-jump-btn">↑</button>
+      <div id="gorilla-overlay" style="display:none">
+        <h2 id="gorilla-overlay-title">🦍</h2>
+        <p id="gorilla-overlay-msg"></p>
+        <button id="gorilla-overlay-btn">שחק שוב</button>
+        <button onclick="window.GameUI.goHome()">חזרה לתפריט</button>
+      </div>
+    </section>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>פטריות קופצות</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen game-screen active" id="mushrooms-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>פטריות קופצות</h2>
+        </header>
+        <p class="hint">השתמשו בחצים לזוז ורווח לקפוץ. קפצו על הפטריות כדי לאסוף אותן!</p>
+        <div class="mush-stage">
+          <div class="mush-player" id="mush-player"></div>
+          <div class="mush-door" id="mush-door"></div>
+          <div class="ground"></div>
+        </div>
+        <div class="controls">
+          <button id="restart-mush">התחלה מחדש</button>
+        </div>
+        <div class="status" id="mush-status"></div>
+      </section>
+    </main>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

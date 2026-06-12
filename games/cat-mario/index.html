@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>מריו חתולים 🐱</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <section class="screen active" id="cat-mario-screen">
+      <canvas id="cat-c"></canvas>
+
+      <div id="cat-ui">
+        <div id="cat-lives">❤️❤️❤️</div>
+        <div id="cat-score">🐟 0</div>
+        <div id="cat-level">שלב 1</div>
+        <button id="cat-home-btn" onclick="window.GameUI.goHome()">🏠 חזרה</button>
+      </div>
+
+      <div id="cat-d-left">◀</div>
+      <div id="cat-d-right">▶</div>
+      <div id="cat-d-jump">↑</div>
+      <div id="cat-d-attack">🥊</div>
+
+      <!-- Hint screen -->
+      <div id="cat-hint-overlay">
+        <h2>🐱 מריו חתולים</h2>
+        <p>
+          ← → לזוז&nbsp;&nbsp;•&nbsp;&nbsp;רווח / ↑ לקפוץ<br>
+          <strong>Z / 🥊 = נדנוד חדק&nbsp;&nbsp;•&nbsp;&nbsp;החזק = ריסוס מים!</strong><br><br>
+          🍑 תפוס פרי פיל — תהיה לפיל ענק 🐘<br>
+          🐘 הפיל שובר לבנים בהליכה!<br>
+          💦 לחץ ארוך = יורה מים שהורג כלבים!<br>
+          📦 תקע בקוביות מלמטה — יצאו מטבעות ודגים<br>
+          🐕 דרוך על כלבים מלמעלה<br>
+          🏁 אסוף את כל הדגים 🐟 והגע לדגל!<br><br>
+          ❤️ יש לך 3 חיים — תיזהר!
+        </p>
+        <button class="cat-start-btn" id="cat-hint-start">בואו נשחק! ▶</button>
+        <button class="cat-back-btn" onclick="window.GameUI.goHome()">חזרה לתפריט</button>
+      </div>
+
+      <!-- Level complete -->
+      <div id="cat-level-overlay" style="display:none">
+        <h2 id="cat-level-title">🎉 כל הכבוד!</h2>
+        <p id="cat-level-msg">עברת את השלב!</p>
+        <button class="cat-start-btn" id="cat-next-btn">שלב הבא ▶</button>
+      </div>
+
+      <!-- Game over -->
+      <div id="cat-over-overlay" style="display:none">
+        <h2>😿 אוי לא!</h2>
+        <p>נגמרו החיים...<br>רוצה לנסות שוב?</p>
+        <button class="cat-start-btn" id="cat-retry-btn">שוב! 🔄</button>
+        <button class="cat-back-btn" onclick="window.GameUI.goHome()">חזרה לתפריט</button>
+      </div>
+
+      <!-- Win screen -->
+      <div id="cat-win-overlay" style="display:none">
+        <h2>🏆 ניצחת!</h2>
+        <p>אספת את כל הדגים ועברת את כל השלבים!<br>אתה אלוף החתולים! 🐱👑</p>
+        <button class="cat-start-btn" id="cat-playagain-btn">שוב מההתחלה 🔄</button>
+        <button class="cat-back-btn" onclick="window.GameUI.goHome()">חזרה לתפריט</button>
+      </div>
+    </section>
+
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

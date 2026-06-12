@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>משחקי ילדים</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="games/invisible-maze/game.css" />
-    <link rel="stylesheet" href="games/mushrooms/game.css" />
-    <link rel="stylesheet" href="games/shooter/game.css" />
-    <link rel="stylesheet" href="games/hero-key/game.css" />
-    <link rel="stylesheet" href="games/banana/game.css" />
-    <link rel="stylesheet" href="games/adventure/game.css" />
-    <link rel="stylesheet" href="games/sandbox/game.css" />
-    <link rel="stylesheet" href="games/animals/game.css" />
-    <link rel="stylesheet" href="games/kirby/game.css" />
-    <link rel="stylesheet" href="games/gorilla/game.css" />
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
   </head>
   <body>
     <main class="app">
@@ -23,221 +12,76 @@
         <h1>משחקי ילדים</h1>
         <p>בחרו משחק</p>
         <div class="menu-grid">
-          <button class="game-card" data-game="maze">
+          <a class="game-card" href="games/mario/">
+            <span class="card-title">מריו 🍄</span>
+            <span class="card-desc">קפצו על אויבים, אספו פטריות, הגיעו לדגל!</span>
+          </a>
+          <a class="game-card" href="games/space-beam/">
+            <span class="card-title">חללית נסתרת 🚀</span>
+            <span class="card-desc">מצא את החללית — היא תקלוט אותך לשלב הבא!</span>
+          </a>
+          <a class="game-card" href="games/invisible-maze/">
             <span class="card-title">מבוך בלתי ניראה</span>
             <span class="card-desc">תזוזו בזהירות בלי לגעת בקירות</span>
-          </button>
-          <button class="game-card" data-game="mushrooms">
+          </a>
+          <a class="game-card" href="games/mushrooms/">
             <span class="card-title">פטריות קופצות</span>
             <span class="card-desc">קפצו על הפטריות והן יקפיצו אתכם!</span>
-          </button>
-          <button class="game-card" data-game="shooter">
+          </a>
+          <a class="game-card" href="games/shooter/">
             <span class="card-title">יורה מהמרכז</span>
             <span class="card-desc">ירה באויבים מכל הכיוונים!</span>
-          </button>
-          <button class="game-card" data-game="hero-key">
+          </a>
+          <a class="game-card" href="games/hero-key/">
             <span class="card-title">גיבור הכוחות</span>
             <span class="card-desc">בחרו כוח, מצאו מפתח, הגיעו לדלת!</span>
-          </button>
-          <button class="game-card" data-game="banana">
+          </a>
+          <a class="game-card" href="games/banana/">
             <span class="card-title">גשם בננות 🍌</span>
             <span class="card-desc">תפסו את הבננות לפני שנופלות!</span>
-          </button>
-          <button class="game-card" data-game="adventure">
+          </a>
+          <a class="game-card" href="games/adventure/">
             <span class="card-title">הרפתקאות 🌍</span>
             <span class="card-desc">קפצו על אויבים, שנו צורה, חקרו עולם!</span>
-          </button>
-          <button class="game-card" data-game="sandbox">
+          </a>
+          <a class="game-card" href="games/sandbox/">
             <span class="card-title">חול 🏖️</span>
             <span class="card-desc">ציירו עם חול, מים, אש ועוד!</span>
-          </button>
-          <button class="game-card" data-game="animals">
+          </a>
+          <a class="game-card" href="games/animals/">
             <span class="card-title">חיות 🐘</span>
             <span class="card-desc">עלו על החיות — בלי מטרה, סתם כיף!</span>
-          </button>
-          <button class="game-card" data-game="kirby">
+          </a>
+          <a class="game-card" href="games/kirby/">
             <span class="card-title">קירבי 🌟</span>
             <span class="card-desc">שאבו אויבי אש, קבלו כוח ותירו!</span>
-          </button>
-          <button class="game-card" data-game="gorilla">
+          </a>
+          <a class="game-card" href="games/gorilla/">
             <span class="card-title">גורילה 🦍</span>
             <span class="card-desc">אסוף בננות, הימנע מנחשים, שבור את הקיר!</span>
-          </button>
+          </a>
+          <a class="game-card" href="games/cat-mario/">
+            <span class="card-title">מריו חתולים 🐱</span>
+            <span class="card-desc">קפצו על כלבים, אספו דגים, הגיעו לדגל!</span>
+          </a>
+          <a class="game-card" href="games/animal-rider/">
+            <span class="card-title">רוכב החיות 🐎</span>
+            <span class="card-desc">עלה על סוס או דרקון, הילחם בנחשים ועטלפים!</span>
+          </a>
+          <a class="game-card" href="games/monkey/">
+            <span class="card-title">הקוף 🐵</span>
+            <span class="card-desc">קפוץ, טפס על עצים והרבץ לאויבים!</span>
+          </a>
+          <a class="game-card" href="games/cat-mario-v2/">
+            <span class="card-title">מריו חתולים החדש 🐈</span>
+            <span class="card-desc">גרסה חדשה עם ציורים אמיתיים ותנועה חלקה!</span>
+          </a>
+          <a class="game-card" href="games/shapeshift/">
+            <span class="card-title">משנה צורות 🧒🐦🐟</span>
+            <span class="card-desc">הפוך לציפור לעוף גבוה, ולדג לשחות במים — ופתור חידות!</span>
+          </a>
         </div>
-      </section>
-
-      <section class="screen game-screen" id="maze-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>מבוך בלתי ניראה</h2>
-        </header>
-        <div class="level-switcher">
-          <button class="level-btn" data-level="1">קל</button>
-          <button class="level-btn" data-level="2">בינוני</button>
-          <button class="level-btn" data-level="3">קשה</button>
-        </div>
-        <p class="hint">המסלול מוסתר. הזיזו את הכדור מההתחלה אל הסיום בלי לגעת בקירות.</p>
-        <div class="maze-board" id="maze-board"></div>
-        <div class="status" id="maze-status">התחילו לנוע בזהירות</div>
-      </section>
-
-      <section class="screen game-screen" id="mushrooms-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>פטריות קופצות</h2>
-        </header>
-        <p class="hint">השתמשו בחצים לזוז ורווח לקפוץ. קפצו על הפטריות כדי לאסוף אותן!</p>
-        <div class="mush-stage">
-          <div class="mush-player" id="mush-player"></div>
-          <div class="mush-door" id="mush-door"></div>
-          <div class="ground"></div>
-        </div>
-        <div class="controls">
-          <button id="restart-mush">התחלה מחדש</button>
-        </div>
-        <div class="status" id="mush-status"></div>
-      </section>
-
-      <section class="screen game-screen" id="shooter-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>יורה מהמרכז</h2>
-        </header>
-        <div id="shooter-canvas-container"></div>
-      </section>
-      <section class="screen game-screen" id="banana-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>גשם בננות 🍌</h2>
-        </header>
-        <p class="hint">חצים שמאל/ימין להזזת הדמות</p>
-        <div class="bn-stage">
-          <div class="bn-ground"></div>
-          <div class="bn-person"></div>
-        </div>
-        <div class="bn-status"></div>
-      </section>
-
-      <section class="screen game-screen" id="hero-key-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>גיבור הכוחות</h2>
-        </header>
-        <p class="hint">חצים לזוז, רווח/מעלה לקפוץ. מצאו את המפתח 🔑 ואז הגיעו לדלת!</p>
-        <div class="hk-stage">
-          <div class="hk-powerup-overlay"></div>
-          <div class="hk-ground"></div>
-        </div>
-        <div class="controls">
-          <button id="hk-restart">התחלה מחדש</button>
-        </div>
-        <div class="hk-status"></div>
-      </section>
-
-      <section class="screen game-screen" id="kirby-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>קירבי 🌟</h2>
-        </header>
-        <p class="hint">Z לשאוב אויבים • Z שוב לבלוע (כוח!) • X לירות • ↑ לקפוץ</p>
-        <div class="level-switcher">
-          <button class="level-btn active" data-kirby-level="1">🔥 שלב אש</button>
-          <button class="level-btn" data-kirby-level="2">🌿 שלב יער</button>
-        </div>
-        <div id="kirby-stage"></div>
-      </section>
-
-      <section class="screen game-screen" id="animals-screen">
-        <header class="game-header">
-          <button class="back-btn" data-back>חזרה</button>
-          <h2>חיות 🐘</h2>
-        </header>
-        <p class="hint">חצים לזוז, רווח לקפוץ — עלו על החיות!</p>
-        <div id="animals-stage"></div>
       </section>
     </main>
-
-    <!-- Adventure screen — full-viewport, lives outside .app -->
-    <section class="screen" id="adventure-screen">
-      <canvas id="adv-c"></canvas>
-      <div id="adv-flash"></div>
-      <div id="adv-ui">
-        <div id="adv-hearts"></div>
-        <div id="adv-form-name">🧒 אדם</div>
-        <button id="adv-home-btn" onclick="window.GameUI.showScreen('menu')">🏠 חזרה</button>
-      </div>
-      <div id="adv-forms">
-        <button class="adv-fbtn active" data-form="human"><span>🧒</span><span class="lbl">אדם</span></button>
-        <button class="adv-fbtn"        data-form="cat">  <span>🐱</span><span class="lbl">חתול</span></button>
-        <button class="adv-fbtn"        data-form="bird"> <span>🦅</span><span class="lbl">ציפור</span></button>
-        <button class="adv-fbtn"        data-form="fish"> <span>🐟</span><span class="lbl">דג</span></button>
-        <button class="adv-fbtn"        data-form="rabbit"><span>🐰</span><span class="lbl">ארנב</span></button>
-      </div>
-      <div id="adv-d-left">◀</div>
-      <div id="adv-d-right">▶</div>
-      <div id="adv-d-jump">↑</div>
-      <div id="adv-hint-overlay">
-        <h2>🌍 הרפתקאות</h2>
-        <p>
-          ← → לזוז&nbsp;•&nbsp;רווח / ↑ לקפוץ<br>
-          <strong>דרוך על אויב מלמעלה כדי לנצח אותו!</strong><br><br>
-          🐱 חתול — קופץ פעמיים&nbsp;&nbsp;🦅 ציפור — עף<br>
-          🐟 דג — שוחה&nbsp;&nbsp;🐰 ארנב — קופץ גבוה<br><br>
-          ❤️ יש לך 5 חיים — תיזהר!
-        </p>
-        <button class="adv-start-btn" onclick="document.getElementById('adv-hint-overlay').style.display='none'">התחל ▶</button>
-        <button class="adv-back-btn" onclick="window.GameUI.showScreen('menu')">חזרה לתפריט</button>
-      </div>
-    </section>
-
-    <!-- Sandbox screen -->
-    <section class="screen game-screen" id="sandbox-screen">
-      <header class="game-header">
-        <button class="back-btn" data-back>חזרה</button>
-        <h2>חול 🏖️</h2>
-      </header>
-      <div id="sandbox-wrap">
-        <div id="sandbox-toolbar">
-          <button class="sb-btn active" data-element="sand"  style="color:#e8c87a">◈ חול</button>
-          <button class="sb-btn"        data-element="water" style="color:#5ab4f5">◈ מים</button>
-          <button class="sb-btn"        data-element="fire"  style="color:#f5832a">◈ אש</button>
-          <button class="sb-btn"        data-element="steam" style="color:#aaccdd">◈ קיטור</button>
-          <button class="sb-btn"        data-element="stone" style="color:#888">◈ אבן</button>
-          <button class="sb-btn"        data-element="wood"  style="color:#a0724a">◈ עץ</button>
-          <button class="sb-btn"        data-element="oil"   style="color:#c8a040">◈ שמן</button>
-          <button class="sb-btn"        data-element="lava"  style="color:#ff4400">◈ לבה</button>
-          <button class="sb-btn"        data-element="ice"   style="color:#88ddff">◈ קרח</button>
-          <button class="sb-btn"        data-element="erase" style="color:#666">✕ מחק</button>
-          <label id="sb-brush-label"><input type="range" id="sb-brush-size" min="1" max="12" value="3"> גודל</label>
-          <button class="sb-btn" id="sb-clear-btn" style="color:#f55">⟳ נקה</button>
-        </div>
-        <canvas id="sb-canvas"></canvas>
-        <div id="sandbox-info">לחץ וגרור לציור</div>
-      </div>
-    </section>
-
-    <!-- Gorilla screen — full-viewport -->
-    <section class="screen" id="gorilla-screen">
-      <canvas id="gorilla-canvas"></canvas>
-      <div id="gorilla-ui">
-        <div id="gorilla-lives">❤️❤️❤️</div>
-        <div id="gorilla-bananas">🍌 0/10</div>
-        <div id="gorilla-level">שלב 1</div>
-      </div>
-      <button id="gorilla-home-btn">🏠 חזרה</button>
-      <div id="gorilla-dpad">
-        <button class="gorilla-dpad-btn" id="gorilla-left-btn">◀</button>
-        <button class="gorilla-dpad-btn" id="gorilla-right-btn">▶</button>
-      </div>
-      <button id="gorilla-jump-btn">↑</button>
-      <div id="gorilla-overlay" style="display:none">
-        <h2 id="gorilla-overlay-title">🦍</h2>
-        <p id="gorilla-overlay-msg"></p>
-        <button id="gorilla-overlay-btn">שחק שוב</button>
-        <button onclick="window.GameUI.showScreen('menu')">חזרה לתפריט</button>
-      </div>
-    </section>
-
-    <script type="module" src="script.mjs"></script>
   </body>
 </html>

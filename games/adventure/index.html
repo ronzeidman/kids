@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>הרפתקאות 🌍</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <section class="screen active" id="adventure-screen">
+      <canvas id="adv-c"></canvas>
+      <div id="adv-flash"></div>
+      <div id="adv-ui">
+        <div id="adv-hearts"></div>
+        <div id="adv-form-name">🧒 אדם</div>
+        <button id="adv-home-btn" onclick="window.GameUI.goHome()">🏠 חזרה</button>
+      </div>
+      <div id="adv-forms">
+        <button class="adv-fbtn active" data-form="human"><span>🧒</span><span class="lbl">אדם</span></button>
+        <button class="adv-fbtn"        data-form="cat">  <span>🐱</span><span class="lbl">חתול</span></button>
+        <button class="adv-fbtn"        data-form="bird"> <span>🦅</span><span class="lbl">ציפור</span></button>
+        <button class="adv-fbtn"        data-form="fish"> <span>🐟</span><span class="lbl">דג</span></button>
+        <button class="adv-fbtn"        data-form="rabbit"><span>🐰</span><span class="lbl">ארנב</span></button>
+      </div>
+      <div id="adv-d-left">◀</div>
+      <div id="adv-d-right">▶</div>
+      <div id="adv-d-jump">↑</div>
+      <div id="adv-hint-overlay">
+        <h2>🌍 הרפתקאות</h2>
+        <p>
+          ← → לזוז&nbsp;•&nbsp;רווח / ↑ לקפוץ<br>
+          <strong>דרוך על אויב מלמעלה כדי לנצח אותו!</strong><br><br>
+          🐱 חתול — קופץ פעמיים&nbsp;&nbsp;🦅 ציפור — עף<br>
+          🐟 דג — שוחה&nbsp;&nbsp;🐰 ארנב — קופץ גבוה<br><br>
+          ❤️ יש לך 5 חיים — תיזהר!
+        </p>
+        <button class="adv-start-btn" onclick="document.getElementById('adv-hint-overlay').style.display='none'">התחל ▶</button>
+        <button class="adv-back-btn" onclick="window.GameUI.goHome()">חזרה לתפריט</button>
+      </div>
+    </section>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

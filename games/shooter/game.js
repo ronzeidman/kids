@@ -367,13 +367,5 @@ export function initShooter() {
     game = null;
   };
 
-  new MutationObserver(() => {
-    if (screen.classList.contains('active')) startGame();
-    else stopGame();
-  }).observe(screen, { attributes: true, attributeFilter: ['class'] });
-
-  // Also handle back buttons
-  document.querySelectorAll('[data-back]').forEach(btn => {
-    btn.addEventListener('click', stopGame);
-  });
+  if (screen.classList.contains('active')) startGame();
 }

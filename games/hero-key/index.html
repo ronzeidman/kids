@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>גיבור הכוחות</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen game-screen active" id="hero-key-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>גיבור הכוחות</h2>
+        </header>
+        <p class="hint">חצים לזוז, רווח/מעלה לקפוץ. מצאו את המפתח 🔑 ואז הגיעו לדלת!</p>
+        <div class="hk-stage">
+          <div class="hk-powerup-overlay"></div>
+          <div class="hk-ground"></div>
+        </div>
+        <div class="controls">
+          <button id="hk-restart">התחלה מחדש</button>
+        </div>
+        <div class="hk-status"></div>
+      </section>
+    </main>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+#spacebeam-screen {
+  background: #07071a;
+  color: #dde;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 12px;
+}
+
+#spacebeam-screen .game-header {
+  width: 100%;
+  background: transparent;
+  border-bottom: 1px solid #1a1a3a;
+}
+
+#spacebeam-screen .game-header h2 {
+  color: #aaccff;
+}
+
+#spacebeam-screen .back-btn {
+  background: #111130;
+  color: #8899ff;
+  border: 1px solid #2a2a6a;
+}
+
+#sb-canvas {
+  display: block;
+  width: min(96vw, 480px);
+  aspect-ratio: 480 / 288;
+  margin: 8px auto 0;
+  border: 2px solid #1a2a5a;
+  border-radius: 6px;
+  image-rendering: pixelated;
+}
+
+/* ── touch controls ── */
+.sb-touch {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sb-btn {
+  min-width: 64px;
+  height: 52px;
+  font-size: 18px;
+  border: 2px solid #2a2a6a;
+  border-radius: 12px;
+  background: #111130;
+  color: #aabbff;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+}
+
+.sb-btn:active,
+.sb-btn.pressed {
+  background: #2a3aaa;
+  color: #fff;
+}
+
+.sb-btn-jump {
+  min-width: 110px;
+  background: #1a1a50;
+  border-color: #4455cc;
+  color: #ccddff;
+  font-weight: bold;
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>קירבי 🌟</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen game-screen active" id="kirby-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>קירבי 🌟</h2>
+        </header>
+        <p class="hint">Z לשאוב אויבים • Z שוב לבלוע (כוח!) • X לירות • ↑ לקפוץ</p>
+        <div class="level-switcher">
+          <button class="level-btn active" data-kirby-level="1">🔥 שלב אש</button>
+          <button class="level-btn" data-kirby-level="2">🌿 שלב יער</button>
+        </div>
+        <div id="kirby-stage"></div>
+      </section>
+    </main>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

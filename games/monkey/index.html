@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="he">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>הקוף</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <style>
+      #monkey-screen { display: flex; flex-direction: column; }
+      #game-canvas { display: block; margin: 0 auto; background: #2c9442; border-radius: 8px; }
+      .hint { text-align: center; margin: 4px 0; }
+      #status { text-align: center; font-weight: bold; min-height: 1.4em; }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen game-screen active" id="monkey-screen">
+        <header class="game-header">
+          <button class="back-btn" data-back>חזרה</button>
+          <h2>הקוף 🐵</h2>
+        </header>
+        <p class="hint">חצים לזוז · רווח לקפוץ · X להרביץ · למעלה ליד עץ לטפס</p>
+        <div id="status"></div>
+        <canvas id="game-canvas" width="900" height="500"></canvas>
+      </section>
+    </main>
+    <script src="../../shared/utils.js"></script>
+    <script src="../../shared/ui.js"></script>
+    <script src="assets/sheet-meta.js"></script>
+    <script src="https://unpkg.com/kaplay@3001.0.18/dist/kaplay.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

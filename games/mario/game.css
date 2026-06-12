@@ -1,0 +1,71 @@
+#mario-screen {
+  background: #5b8cd8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 10px;
+}
+
+#mario-screen .game-header {
+  width: 100%;
+  background: rgba(0,0,40,0.5);
+  border-bottom: 2px solid #e63946;
+}
+
+#mario-screen .game-header h2 { color: #ffd700; }
+#mario-screen .back-btn { background: #1a1a40; color: #ffd700; border: 1px solid #e63946; }
+#mario-screen .hint { color: rgba(255,255,255,0.7); font-size: 0.75rem; margin: 4px 0 0; }
+
+#mario-canvas {
+  display: block;
+  width: min(96vw, 480px);
+  aspect-ratio: 480 / 288;
+  margin: 6px auto 0;
+  image-rendering: pixelated;
+  border: 3px solid #e63946;
+  border-radius: 4px;
+}
+
+/* ── touch controls ── */
+.mario-touch {
+  display: flex;
+  justify-content: space-between;
+  width: min(96vw, 480px);
+  margin-top: 8px;
+  padding: 0 4px;
+}
+
+.mario-touch-left,
+.mario-touch-right { display: flex; gap: 6px; }
+
+.mario-btn {
+  width: 56px; height: 56px;
+  font-size: 20px; font-weight: bold;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.mario-btn:active { background: rgba(255,255,255,0.3); }
+
+.mario-btn-a {
+  background: #cc2222;
+  border-color: #ff5555;
+  font-size: 18px;
+}
+
+.mario-btn-b {
+  background: #1a66cc;
+  border-color: #55aaff;
+  font-size: 18px;
+}
+
+.mario-btn-a:active { background: #ff4444; }
+.mario-btn-b:active { background: #4488ff; }
